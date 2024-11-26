@@ -1125,7 +1125,7 @@ microstack_docs = Docs(
         url_prefix="/docs",
     ),
     document_template="/microstack/docs/document.html",
-    url_prefix="/microstack/docs/",
+    url_prefix="/docs/",
     blueprint_name="microstack_docs",
 )
 microstack_docs.init_app(app)
