@@ -1117,7 +1117,10 @@ data_docs = Docs(
 # Data Platform index docs
 microstack_docs = Docs(
     parser=DocParser(
-        api=DiscourseAPI(base_url="https://discourse.ubuntu.com/", session=get_requests_session()),
+        api=DiscourseAPI(
+            base_url="https://discourse.ubuntu.com/",
+            session=get_requests_session()
+        ),
         index_topic_id=18212,
         url_prefix="/docs",
     ),
