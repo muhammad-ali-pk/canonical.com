@@ -1114,7 +1114,7 @@ data_docs = Docs(
     blueprint_name="data_docs",
 )
 
-# Data Platform index docs
+# Mirostack docs
 microstack_docs = Docs(
     parser=DocParser(
         api=DiscourseAPI(
@@ -1122,10 +1122,10 @@ microstack_docs = Docs(
             session=get_requests_session(),
         ),
         index_topic_id=18212,
-        url_prefix="/docs",
+        url_prefix="/microstack/docs",
     ),
     document_template="/microstack/docs/document.html",
-    url_prefix="/docs/",
+    url_prefix="/microstack/docs",
     blueprint_name="microstack_docs",
 )
 microstack_docs.init_app(app)
