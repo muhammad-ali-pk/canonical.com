@@ -3,7 +3,6 @@ name: Deploy
 on:
   push:
     branches:
-      - add-charm
       - main
 
 concurrency: 
@@ -127,7 +126,7 @@ jobs:
 
   deploy-production:
     runs-on: [self-hosted, self-hosted-linux-amd64-noble-private-endpoint-medium]
-    needs: [pack-charm, publish-image]
+    needs: [pack-charm, publish-image, deploy-staging]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
