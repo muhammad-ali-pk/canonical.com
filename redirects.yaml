@@ -2039,3 +2039,6 @@ blog/group/(?P<group>[^/]+)/?: /blog/archives?group={group}
 
 # Infrastructure modernization redirects
 blog/cloudify-your-data-centre: https://assets.ubuntu.com/v1/855af1ef-infrastructure_modernization_and_sovereignty_datasheet.pdf
+
+
+robots.txt?: "/static/files/robots.txt"
