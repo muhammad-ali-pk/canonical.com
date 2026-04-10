@@ -532,17 +532,16 @@
     {%- endif -%}
   {% endcall -%}
 
-  <section class="p-section--shallow">
-    {{ vf_blog(
-      title={"text": "Latest from our blog"},
-      template_config={
-        "enabled": True,
-        "template_container_id": "articles",
-        "layout": "4-blocks",
-        "template_id": "template",
-      })
-    }}
-  </section>
+  {{ vf_blog(
+    title={"text": "Latest from our blog"},
+    padding="deep",
+    template_config={
+      "enabled": True,
+      "template_container_id": "articles",
+      "layout": "4-blocks",
+      "template_id": "template",
+    })
+  }}
 
   {{ load_form("/solutions/education") | safe }}
 
