@@ -522,14 +522,16 @@
     title_text='Canonical can support unique requirements for academic institutions.',
     variant='default',
     layout='100',
+    blocks=[
+      {
+        "type": "cta",
+        "item": {
+          "type": "html",
+          "content": '<a href="/contact-us" aria-controls="education-modal" class="js-invoke-modal">Contact us to discuss your use case&nbsp;&rsaquo;</a>'
+        }
+      }
+    ]
   ) -%}
-    {%- if slot == 'cta' -%}
-      <a href="/contact-us"
-        aria-controls="education-modal"
-        class="js-invoke-modal">
-        Contact us to discuss your use case&nbsp;&rsaquo;
-      </a>
-    {%- endif -%}
   {% endcall -%}
 
   {{ vf_blog(
