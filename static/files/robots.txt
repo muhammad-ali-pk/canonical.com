@@ -1,7 +1,7 @@
 # ============================================================================
 # robots.txt for canonical.com
 # Optimized for maximum AI visibility and LLM Context Efficiency
-# Last updated: 2026-03-18
+# Last updated: 2026-04-16
 # ============================================================================
 
 # ============================================================================
@@ -63,6 +63,7 @@ Allow: /*?format=md
 # High-Value Content Priority (Verified product & doc routes)
 Allow: /blog/
 Allow: /documentation/
+Allow: /knowledge/
 Allow: /juju/docs/
 Allow: /maas/docs/
 Allow: /microk8s/docs/
