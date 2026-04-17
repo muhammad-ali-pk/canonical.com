@@ -35,7 +35,7 @@ There are many ways you can mitigate the vulnerabilities and risks of open sourc
 [Read our article on the security of open source versus proprietary software ›](https://canonical.com/blog/does-open-source-software-have-the-same-safety-as-proprietary-software)
 
 
-## Best practices for securing open source
+## Best practices for open source security
 There are two essential practices when it comes to securing open source software deployments: preventing attacks using known methods, and maintaining software in the face of new vulnerabilities. 
 
 
@@ -87,7 +87,7 @@ There are two important things to highlight about dependencies:
   type="number",
   items=[
   "The more dependencies you have, the bigger your attack surface (generally speaking). That's simply because you have more software.",
-  "Getting your dependencies from trusted sources can reduce the risk of sourcing compromised packages. Some ecosystems are more susceptible to compromises compared to others."
+  "Getting your dependencies from trusted sources can reduce the risk of sourcing compromised packages. Some ecosystems are more susceptible to compromise compared to others."
 ]) }}
 
 When it comes to dependencies, it’s about finding a balance between quality and quantity. For example, relying on five tiny and well maintained libraries is better than relying on a single big, poorly written, or unmaintained library.
@@ -95,8 +95,6 @@ When it comes to dependencies, it’s about finding a balance between quality an
 ### What is dependency management?
 
 In software development, dependency management refers to the process of identifying, mapping, and maintaining the extensive list of direct and indirect dependencies that your software contains, as well as maintaining the long-term security of these dependencies.
-
-### Why is dependency management important?
 
 Dependency management in software development is important because dependencies in software represent an attack vector that could be used to attack and breach your software. If your application relies on a particular package, framework, or library that becomes affected by known vulnerabilities, your app could be compromised or at risk. Dependency management is an ongoing process that aims to prevent, mitigate, or contain these risks.
 
