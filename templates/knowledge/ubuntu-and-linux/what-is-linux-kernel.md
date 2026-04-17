@@ -51,6 +51,8 @@ Modern Unix systems are highly capable. They introduced [preemptive multitasking
 
 ### Who is Linus Torvalds?
 
+*“Hello everybody out there using minix -*
+
 *I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu) for 386(486) AT clones.  [...] It is NOT portable (uses 386 task switching etc), and it probably never will support anything other than AT-harddisks, as that's all I have :-(.”*
 
 \- Linus Torvalds’ [announcement](https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/SwRavCzVE7gJ) of Linux
@@ -90,7 +92,7 @@ The kernel forms the foundation of the system. It provides the essential service
 
 A key concept within the Linux kernel world is “where” processes run. A processor, often called a CPU, is the hardware unit in a computer that carries out instructions, fetching them from memory, performing calculations, and moving data around.
 
-Modern microprocessors support code execution at a minimum of two privilege levels, hardware-enforced execution tiers that restrict what operations code is allowed to perform. . For instance, Intel and AMD processor families support four ring levels, arm32 microprocessors support seven execution modes, and so on. The kernel's Virtual Address Space (VAS), the range of virtual memory addresses visible to and managed by the system, is then "split" into at least clearly distinguished (virtual) address spaces. A processor is always engaged in one of three areas:
+Modern microprocessors support code execution at a minimum of two privilege levels, hardware-enforced execution tiers that restrict what operations code is allowed to perform. For instance, Intel and AMD processor families support four ring levels, arm32 microprocessors support seven execution modes, and so on. The kernel's Virtual Address Space (VAS), the range of virtual memory addresses visible to and managed by the system, is then "split" into at least clearly distinguished (virtual) address spaces. A processor is always engaged in one of three areas:
 
 {{ text_list_kh(
   type="number",
@@ -197,8 +199,6 @@ To understand how Linux operates, it helps to see *when* the kernel actually exe
 ### Interrupt context
 
 The other way kernel code runs is when hardware interrupts demand immediate attention. A device like a network card, a disk controller, or a timer triggers an interrupt, causing the CPU to pause its current work, save the process’s state, and jump into an interrupt handler. This code does *not* run for any specific process and cannot block or sleep. It is asynchronous and often time-critical, essentially forming the kernel’s reaction layer to external events.
-
-{{ lite_video(video_id="1eqEpf9hPKk", video_title="Starting Your Career at Canonical - Journey to Prof I") | safe }}
 
 ## Ubuntu and the Linux kernel
 
