@@ -2,6 +2,7 @@
 wrapper_template: "knowledge/_base_knowledge_markdown.html"
 context:
   category: "Ubuntu and Linux"
+  description: "Understand the Linux kernel, its history and functionality. Learn about its Unix roots, creation by Linus Torvalds, open-source nature (GPLv2), and its core role in managing hardware, processes, and components."
   tag: "Linux kernel"
   title: "What is the Linux Kernel? | Ubuntu and Linux | Linux kernel"
   breadcrumb: "What is the Linux Kernel?"
@@ -24,7 +25,7 @@ context:
 {% from "macros/_macros-image.jinja" import image_kh %}
 {% from "macros/_macros-lite-video.jinja" import lite_video %}
 
-The Linux kernel is widely used and its codebase ever-increasing, so it can feel daunting for a newcomer to wrap their head around it. This article aims to make the fascinating world of Linux feel less intimidating. Linux for human beings, you might say.
+The Linux kernel is the main component behind Linux operating systems, and acts as the intermediary between a computer’s hardware and software layers. The Linux kernel is widely used and its codebase is ever-increasing, so it can feel daunting for a newcomer to wrap their head around it. This article aims to make the fascinating world of Linux, and the kernel itself, feel less intimidating. Linux for human beings, you might say.
 
 ## What is the history of Linux?
 
@@ -186,7 +187,7 @@ User space and kernel space occupy separate virtual address spaces and operate a
 User-space applications, however, do not interact with the kernel solely through direct system calls. Often,  they rely on library APIs, which are standardised, well-written, and well-tested interfaces such as the C standard library glibc, POSIX libraries, or domain-specific libraries. A library is essentially a collection or archive of APIs which abstract away the underlying system calls and provide higher-level, portable functions. For example, printf(), fopen(), or pthread_create() are library APIs that translate into system calls like write(), open(), or clone(), but with additional logic, error handling, and convenience.
 
 
-## How can kernel code execute?
+## How can the kernel code execute?
 
 To understand how Linux operates, it helps to see *when* the kernel actually executes. Although the kernel is large, all of its code runs in just two situations, known as “contexts”. Whether responding to a system call or reacting to hardware, all kernel execution falls into one of these two contexts. Linux switches into kernel mode to do its work and then returns control when it’s safe to do so.
 
