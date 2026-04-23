@@ -57,6 +57,7 @@ from webapp.views import (
     append_utms_cookie_to_ubuntu_links,
     build_knowledge_index,
     build_knowledge_category_index,
+    get_knowledge_sections,
 )
 from webapp.application import application_bp
 from webapp.canonical_cla.views import (
@@ -92,6 +93,7 @@ DYNAMIC_SITEMAPS = [
     "careers",
     "partners",
     "blog",
+    "knowledge",
 ]
 
 # Web tribe websites custom search ID
@@ -1020,6 +1022,22 @@ app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
 
 # Knowledge hub
 app.add_url_rule("/knowledge", view_func=build_knowledge_index())
+
+
+@app.route("/knowledge/sitemap.xml")
+def knowledge_sitemap():
+    sections = get_knowledge_sections()
+
+    context = {
+        "sections": sections,
+    }
+
+    xml_sitemap = flask.render_template("knowledge/sitemap.xml", **context)
+    response = flask.make_response(xml_sitemap)
+    response.headers["Content-Type"] = "application/xml"
+    response.headers["Cache-Control"] = "public, max-age=43200"
+
+    return response
 
 
 def register_knowledge_category_routes():
