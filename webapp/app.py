@@ -48,12 +48,16 @@ from urllib3.exceptions import MaxRetryError
 from slugify import slugify
 
 # Local
+from canonicalwebteam.markdown_response import MarkdownResponse
 from webapp.views import (
     json_asset_query,
     build_case_study_index,
     build_events_index,
     build_canonical_days_index,
     append_utms_cookie_to_ubuntu_links,
+    build_knowledge_index,
+    build_knowledge_category_index,
+    get_knowledge_sections,
 )
 from webapp.application import application_bp
 from webapp.canonical_cla.views import (
@@ -89,6 +93,7 @@ DYNAMIC_SITEMAPS = [
     "careers",
     "partners",
     "blog",
+    "knowledge",
 ]
 
 # Web tribe websites custom search ID
@@ -102,6 +107,10 @@ app = FlaskBase(
     template_404="404.html",
     template_500="500.html",
 )
+
+# Markdown endpoint for LLM/crawler optimization
+# Serves any page as Markdown via ?format=md query parameter
+MarkdownResponse(app)
 
 # Load env variables after the app is initialized
 CHARMHUB_DISCOURSE_API_KEY = os.getenv("CHARMHUB_DISCOURSE_API_KEY")
@@ -1009,6 +1018,44 @@ app.add_url_rule(
     view_func=PressCenter.as_view("press_center", blog_views=blog_views),
 )
 app.register_blueprint(build_blueprint(blog_views), url_prefix="/blog")
+
+
+# Knowledge hub
+app.add_url_rule("/knowledge", view_func=build_knowledge_index())
+
+
+@app.route("/knowledge/sitemap.xml")
+def knowledge_sitemap():
+    sections = get_knowledge_sections()
+
+    context = {
+        "sections": sections,
+    }
+
+    xml_sitemap = flask.render_template("knowledge/sitemap.xml", **context)
+    response = flask.make_response(xml_sitemap)
+    response.headers["Content-Type"] = "application/xml"
+    response.headers["Cache-Control"] = "public, max-age=43200"
+
+    return response
+
+
+def register_knowledge_category_routes():
+    base_path = Path(app.root_path).parent / "templates" / "knowledge"
+
+    if base_path.exists():
+        for category_dir in sorted(base_path.iterdir()):
+            if category_dir.is_dir() and not category_dir.name.startswith("_"):
+                category_slug = category_dir.name
+                app.add_url_rule(
+                    f"/knowledge/{category_slug}",
+                    view_func=build_knowledge_category_index(category_slug),
+                    endpoint=f"knowledge_{category_slug}",
+                )
+
+
+# Register all knowledge hub category routes dynamically
+register_knowledge_category_routes()
 
 
 # Template finder
