@@ -72,6 +72,7 @@ $p-small-lh-diff: map-get($line-heights, default-text) -
 @include maas-styles;
 @include canonical-p-nojs-navigation;
 @include vf-u-align;
+@include vf-p-content-card;
 
 @media screen and ($breakpoint-large <= width) {
   .p-section__u-no-padding--top {
