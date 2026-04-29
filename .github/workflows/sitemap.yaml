@@ -1,7 +1,5 @@
 name: Sitemap generation for static pages on canonical.com
 on:
-  # remove before merge
-  pull_request:
   push:
     branches:
       - main
@@ -19,7 +17,7 @@ jobs:
 
       - name: Call sitemap generation endpoint
         run: |
-          curl --fail-with-body -X POST "https://staging.canonical.com/sitemap_tree.xml" \
+          curl --fail-with-body -X POST "https://canonical.com/sitemap_tree.xml" \
           -H "Authorization: Bearer ${{ secrets.SITEMAP_SECRET }}"
 
       - name: Send message on failure

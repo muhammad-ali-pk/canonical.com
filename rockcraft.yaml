@@ -12,8 +12,10 @@ platforms:
 extensions:
   - flask-framework
 parts:
-  install-git:
+  git:
     plugin: nil
+    build-packages:
+      - git
     stage-packages:
       - git
   
