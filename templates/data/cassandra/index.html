@@ -73,7 +73,6 @@
 ) -%}
 {% endcall -%}
 
-
 {% call(slot) vf_logo_section(
   mode="default",
   title={
@@ -182,7 +181,6 @@
 </div>
 {%- endif -%}
 
-
 {%- endcall -%}
 
 {% call(slot) vf_equal_heights(
@@ -192,28 +190,27 @@
   items=[
     {
       "title_text": "Real-time analytics",
-      "image_html":  "<img src='https://assets.ubuntu.com/v1/9de7e194-canonical_postgresql_illustrations_04.png' class='p-image-container__image' width='284' height='426' alt='Cassandra Real-time analytics' />",
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/9de7e194-canonical_postgresql_illustrations_04.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Real-time analytics" />',
       "description_html": "<p>Apache Cassandra’s automatic sharding and efficient write-optimized design make it ideal for large-scale time-series data. That’s why Apache Cassandra is often used to manage IoT sensor streams, support fraud detection pipelines and power real-time recommendations.</p>",
     },
     {
       "title_text": "Geo-distributed applications",
-      "image_html":  "<img src='https://assets.ubuntu.com/v1/5dc854e4-artboard_154_4x.png' class='p-image-container__image' width='284' height='426' alt='Cassandra Geo-distributed applications' />",
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/5dc854e4-artboard_154_4x.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Geo-distributed applications" />',
       "description_html": "<p>Apache Cassandra’s multi-primary architecture and built-in multi-data center replication makes it an excellent choice for applications distributed across several regions, such the ones managing global user or session data.</p>",
     },
     {
       "title_text": "Mission critical applications",
-      "image_html":  "<img src='https://assets.ubuntu.com/v1/e4656853-healthcare_2x.png' class='p-image-container__image' width='284' height='426' alt='Cassandra Mission critical applications' />",
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/e4656853-healthcare_2x.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Mission critical applications" />',
       "description_html": "<p>With proper configuration, Apache Cassandra can withstand node, rack, and even entire datacenter outages while continuing to serve read and write requests. Therefore, Apache Cassandra is a reliable option for applications with strict availability SLAs, like those in telco or retail sectors.</p>",
     },
     {
       "title_text": "Latency-sensitive applications",
-      "image_html":  "<img src='https://assets.ubuntu.com/v1/b39b4ecc-telco_2x.png' class='p-image-container__image' width='284' height='426' alt='Cassandra Latency-sensitive applications' />",
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/b39b4ecc-telco_2x.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Latency-sensitive applications" />',
       "description_html": "<p>Apache Cassandra can serve reads and writes from local copies while asynchronously replicating data across remote ones. This makes it a strong choice for latency-sensitive use cases such as global streaming services.</p>",
     }
   ]
 ) %}
 {% endcall %}
-
 
 {% call(slot) vf_pricing_block(
     title_text='Apache Cassandra support services',
