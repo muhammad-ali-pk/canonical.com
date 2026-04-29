@@ -1,0 +1,22 @@
+{% extends 'base_index.html' %}
+
+{% block body_class %}
+  is-paper
+{% endblock body_class %}
+
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block content %}
+
+  {% call(slot) vf_hero(
+    blocks=[],
+    display_blank_signpost_image_space=false,
+    is_split_on_medium=false,
+    layout="fallback",
+    subtitle_text="",
+    title_text=""
+    ) -%}
+
+  {% endcall -%}
+
+{% endblock %}
