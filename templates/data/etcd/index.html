@@ -23,8 +23,9 @@
 {% block content %}
 
   {% call(slot) vf_hero(
-    title_text='Enterprise support <br class="u-hide--small" />for etcd databases',
-    layout='25/75'
+    title_text='Enterprise support for etcd databases',
+    layout='25/75',
+    is_split_on_medium=true
     ) -%}
     {%- if slot == 'signpost_image' -%}
       {{ image(url="https://assets.ubuntu.com/v1/18f7bc01-etcd_logo.png",
@@ -205,7 +206,7 @@
         <div class="p-equal-height-row--wrap">
           <div class="p-equal-height-row__col is-borderless">
             <div class="p-equal-height-row__item">
-              <div class="p-image-container p-image-container--square is-cover is-highlighted">
+              <div class="p-image-container p-image-container--2-3 is-cover is-highlighted">
                 {{ image(url="https://assets.ubuntu.com/v1/df6340f7-kubernetes.png",
                   alt="",
                   width="568",
@@ -226,7 +227,7 @@
           </div>
           <div class="p-equal-height-row__col is-borderless">
             <div class="p-equal-height-row__item">
-              <div class="p-image-container p-image-container--square is-cover is-highlighted">
+              <div class="p-image-container p-image-container--2-3 is-cover is-highlighted">
                 {{ image(url="https://assets.ubuntu.com/v1/a6204781-configuration_management.png",
                   alt="",
                   width="568",
@@ -247,7 +248,7 @@
           </div>
           <div class="p-equal-height-row__col is-borderless">
             <div class="p-equal-height-row__item">
-              <div class="p-image-container p-image-container--square is-cover is-highlighted">
+              <div class="p-image-container p-image-container--2-3 is-cover is-highlighted">
                 {{ image(url="https://assets.ubuntu.com/v1/7aac50b3-service_discovery.png",
                   alt="",
                   width="568",
@@ -269,7 +270,7 @@
           </div>
           <div class="p-equal-height-row__col is-borderless">
             <div class="p-equal-height-row__item">
-              <div class="p-image-container p-image-container--square is-cover is-highlighted">
+              <div class="p-image-container p-image-container--2-3 is-cover is-highlighted">
                 {{ image(url="https://assets.ubuntu.com/v1/ca9ba3c8-distributed_locking.png",
                   alt="",
                   width="568",
@@ -327,7 +328,7 @@
     ]
   ) }}
 
-  <section class="p-section--shallow">
+  <section class="p-section">
     <div class="row">
       <div class="col-6">
         <div class="p-section--shallow">
@@ -362,6 +363,7 @@
 
   {{ vf_basic_section(
     title={"text": "Community and support"},
+    padding="deep",
     items=[
       {
         "type": "description",
