@@ -12,6 +12,11 @@ platforms:
 extensions:
   - flask-framework
 parts:
+  install-git:
+    plugin: nil
+    stage-packages:
+      - git
+  
   flask-framework/install-app:
     prime:
       #       # note: prefix each entry with "flask/app/" followed by the local path.

@@ -1676,6 +1676,10 @@ def build_sitemap_tree(exclude_paths=None):
         directory_path = os.getcwd() + "/templates"
         base_url = "https://canonical.com"
         try:
+            # Ensure /usr/bin is in PATH for git subprocess calls
+            if "/usr/bin" not in os.environ.get("PATH", ""):
+                os.environ["PATH"] = "/usr/bin:" + os.environ.get("PATH", "")
+            
             xml_sitemap = directory_parser.generate_sitemap(
                 directory_path, base_url, exclude_paths=exclude_paths
             )
@@ -1741,6 +1745,10 @@ def build_sitemap_tree(exclude_paths=None):
 # Endpoint for retrieving parsed directory tree
 def get_sitemaps_tree():
     try:
+        # Ensure /usr/bin is in PATH for git subprocess calls
+        if "/usr/bin" not in os.environ.get("PATH", ""):
+            os.environ["PATH"] = "/usr/bin:" + os.environ.get("PATH", "")
+        
         templates_path = os.getcwd() + "/templates"
         tree = directory_parser.scan_directory(
             templates_path, exclude_paths=DYNAMIC_SITEMAPS
