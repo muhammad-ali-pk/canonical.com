@@ -31,6 +31,20 @@ ai:
     - title: MLOps
       path: /mlops
 
+cassandra:
+  title: Cassandra
+  path: /data/cassandra
+
+  parent:
+    - title: All data solutions
+    - path: /data
+
+  children:
+    - title: Overview
+      path: /data/cassandra
+    - title: Docs
+      path: https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/
+
 data:
   title: Data
   path: /data
