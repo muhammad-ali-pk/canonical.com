@@ -2,11 +2,9 @@
 
 {% from "_macros/vf_hero.jinja" import vf_hero %}
 {% from "_macros/vf_logo-section.jinja" import vf_logo_section %}
-{% from "_macros/vf_data-spotlight.jinja" import vf_data_spotlight %}
 {% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 {% from "_macros/vf_equal-heights.jinja" import vf_equal_heights %}
 {% from "_macros/vf_pricing-block.jinja" import vf_pricing_block %}
-{% from "_macros/vf_resources.jinja" import vf_resources %}
 
 {% block meta_copydoc %}
   https://docs.google.com/document/d/16_W5PIiK4mg2b5IYyAzmQvwMf7GA6yLiVOkzZ21nPP4/edit
@@ -50,9 +48,10 @@
           }
         },
         "link": {
-          "content_html": "Give it a try ›",
+          "content_html": "Give it a try",
           "attrs": {
-            "href": "https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/"
+            "href": "https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/",
+            "class": "p-button"
           }
         }
       }
@@ -60,9 +59,7 @@
     {
       "type": "signpost_image",
       "item": {
-        "aspect_ratio": "3-2",
         "is_highlighted": false,
-        "is_cover": true,
         "attrs": {
           "src": "https://assets.ubuntu.com/v1/9f0bed90-cassandra_logo.svg",
           "alt": "Apache Cassandra logo"
@@ -83,30 +80,33 @@
       "type": "logo-block",
       "item": {
         "logos": [
-          {
-            "src": "https://assets.ubuntu.com/v1/36a0cd3b-microsoft-azure-2021.png",
-            "alt": "Microsoft Azure"
-          },
-          {
-            "src": "https://assets.ubuntu.com/v1/9faa9b91-aws-logo.png",
-            "alt": "AWS"
-          },
-          {
-            "src": "https://assets.ubuntu.com/v1/497cabc1-google-cloud-logo.png",
-            "alt": "Google Cloud"
-          },
-          {
-            "src": "https://assets.ubuntu.com/v1/165fa040-openstack-logo.png",
+        {
+            "src": "https://assets.ubuntu.com/v1/3e9cd9c9-openstack_logo.png",
             "alt": "OpenStack"
           },
           {
-            "src": "https://assets.ubuntu.com/v1/a89f2843-microcloud.png",
+            "src": "https://assets.ubuntu.com/v1/bfc292f6-microcloud_logo.png",
             "alt": "Microcloud"
           },
           {
             "src": "https://assets.ubuntu.com/v1/daecf95b-vmware-logo.png",
             "alt": "VMware"
-          }
+          },
+          
+          {
+            "src": "https://assets.ubuntu.com/v1/9faa9b91-aws-logo.png",
+            "alt": "AWS"
+          },
+          {
+            "src": "https://assets.ubuntu.com/v1/eebb672a-google_cloud_logo.png",
+            "alt": "Google Cloud"
+          },
+          {
+            "src": "https://assets.ubuntu.com/v1/f53b5c3a-microsoft_azure_logo.png",
+            "alt": "Microsoft Azure"
+          },
+          
+          
         ]
       }
     }
@@ -117,42 +117,54 @@
 {%- endif -%}
 {% endcall -%}
 
-{{ vf_data_spotlight(
-  title={
-    "text": "Our offering by the numbers",
-  },
-  blocks=[
-    {
-      "stat": "1 million+ users",
-      "headline": "Served by our stack",
-      "description": "Our stack is tried and tested in production. It actively supports our own global Snap Store platform.",
-      "link": {
-        "url": "/contact-us",
-        "text": "Contact us ›",
-        "class": "js-invoke-modal",
-        "aria-controls": "data-cassandra-modal"
-      }
-    },
-    {
-      "stat": "9+ automations",
-      "headline": "To scale your operations",
-      "description": "Includes deployment, scaling, backups, restores, auto-tuning, encryption, monitoring, and upgrades.",
-      "link": {
-        "url": "https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/",
-        "text": "Check our automation ›"
-      }
-    },
-    {
-      "stat": "~ 30 minutes",
-      "headline": "To get started",
-      "description": "Get up and running quickly whether in your local lab environment or your live production infrastructure setup.",
-      "link": {
-        "url": "https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/",
-        "text": "Try it yourself ›"
-      }
-    }
-  ],
-) }}
+<section class="p-section p-data-spotlight--3-blocks">
+  <div class="p-equal-height-row--wrap">
+    <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__title-col">
+      <div class="p-equal-height-row__item p-data-spotlight__title">
+        <h2 class="p-muted-heading">Our offering by the numbers</h2>
+      </div>
+    </div>
+    <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__block">
+      <div class="p-equal-height-row__item">
+        <hr class="p-rule--highlight" />
+        <p class="p-heading--1 u-no-margin u-no-padding">1 million+ users</p>
+      </div>
+      <p class="p-equal-height-row__item p-heading--3 u-no-margin u-no-padding">Served by our stack</p>
+      <div class="p-equal-height-row__item">
+        <p>Our stack is tried and tested in production. It actively supports our own global Snap Store platform.</p>
+      </div>
+      <div class="p-equal-height-row__item">
+        <a class="js-invoke-modal" href="/contact-us" aria-controls="data-cassandra-modal">Contact us ›</a>
+      </div>
+    </div>
+    <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__block">
+      <div class="p-equal-height-row__item">
+        <hr class="p-rule--highlight" />
+        <p class="p-heading--1 u-no-margin u-no-padding">9+ automations</p>
+      </div>
+      <p class="p-equal-height-row__item p-heading--3 u-no-margin u-no-padding">To scale your operations</p>
+      <div class="p-equal-height-row__item">
+        <p>Includes deployment, scaling, backups, restores, auto-tuning, encryption, monitoring, and upgrades.</p>
+      </div>
+      <div class="p-equal-height-row__item">
+        <a href="https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/">Check our automation ›</a>
+      </div>
+    </div>
+    <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__block">
+      <div class="p-equal-height-row__item">
+        <hr class="p-rule--highlight" />
+        <p class="p-heading--1 u-no-margin u-no-padding">~ 30 minutes</p>
+      </div>
+      <p class="p-equal-height-row__item p-heading--3 u-no-margin u-no-padding">To get started</p>
+      <div class="p-equal-height-row__item">
+        <p>Get up and running quickly whether in your local lab environment or your live production infrastructure setup.</p>
+      </div>
+      <div class="p-equal-height-row__item">
+        <a href="https://canonical-charmed-cassandra.readthedocs-hosted.com/latest/">Try it yourself ›</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 {%- call(slot) vf_tiered_list(is_description_full_width_on_desktop=false, is_list_full_width_on_tablet=true) -%}
 {%- if slot == 'title' -%}
@@ -166,7 +178,7 @@
 {%- if slot == 'list_item_description_1' -%}
 <p>Get our Apache Cassandra snap to benefit from added confinement and atomic updates on all major <a href="https://snapcraft.io/docs/distro-support">Linux distributions</a> while having the smallest footprint and attack surface.</p>
 <div class="p-cta-block">
-  <a href="https://snapcraft.io/charmed-cassandra">Try it ›</a>
+  <a href="https://snapcraft.io/charmed-cassandra">Try the snap ›</a>
 </div>
 {%- endif -%}
 
@@ -186,26 +198,27 @@
 {% call(slot) vf_equal_heights(
   title_text="Popular Apache Cassandra use cases",
   attrs={ "id": "4-columns-responsive" },
+  highlight_images=True,
   subtitle_text="",
   items=[
     {
       "title_text": "Real-time analytics",
-      "image_html":  '<img src="https://assets.ubuntu.com/v1/9de7e194-canonical_postgresql_illustrations_04.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Real-time analytics" />',
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/bb6bf672-real_time_analytics.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Real-time analytics" />',
       "description_html": "<p>Apache Cassandra’s automatic sharding and efficient write-optimized design make it ideal for large-scale time-series data. That’s why Apache Cassandra is often used to manage IoT sensor streams, support fraud detection pipelines and power real-time recommendations.</p>",
     },
     {
       "title_text": "Geo-distributed applications",
-      "image_html":  '<img src="https://assets.ubuntu.com/v1/5dc854e4-artboard_154_4x.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Geo-distributed applications" />',
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/96765f8d-geo_distributed.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Geo-distributed applications" />',
       "description_html": "<p>Apache Cassandra’s multi-primary architecture and built-in multi-data center replication makes it an excellent choice for applications distributed across several regions, such the ones managing global user or session data.</p>",
     },
     {
       "title_text": "Mission critical applications",
-      "image_html":  '<img src="https://assets.ubuntu.com/v1/e4656853-healthcare_2x.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Mission critical applications" />',
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/5e994f9b-mission_critical.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Mission critical applications" />',
       "description_html": "<p>With proper configuration, Apache Cassandra can withstand node, rack, and even entire datacenter outages while continuing to serve read and write requests. Therefore, Apache Cassandra is a reliable option for applications with strict availability SLAs, like those in telco or retail sectors.</p>",
     },
     {
       "title_text": "Latency-sensitive applications",
-      "image_html":  '<img src="https://assets.ubuntu.com/v1/b39b4ecc-telco_2x.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Latency-sensitive applications" />',
+      "image_html":  '<img src="https://assets.ubuntu.com/v1/4e1b260c-latency_sensitive.png" class="p-image-container__image" width="284" height="426" alt="Cassandra Latency-sensitive applications" />',
       "description_html": "<p>Apache Cassandra can serve reads and writes from local copies while asynchronously replicating data across remote ones. This makes it a strong choice for latency-sensitive use cases such as global streaming services.</p>",
     }
   ]
@@ -213,11 +226,11 @@
 {% endcall %}
 
 {% call(slot) vf_pricing_block(
-    title_text='Apache Cassandra support services',
+    title_text='Apache Cassandra<br>support services',
     attrs={"id": "2-blocks"},
     tiers=[
     {
-    'tier_name_text': '[subscription-based]',
+    'tier_name_text': 'Subscription-based',
     'tier_price_text': '',
     'tier_price_explanation': '',
     'tier_description_html': '',
@@ -247,7 +260,7 @@
     'cta_html': ''
     },
     {
-    'tier_name_text': '[on-demand]',
+    'tier_name_text': 'On-demand',
     'tier_price_text': '',
     'tier_price_explanation': '',
     'tier_description_html': '',
@@ -291,99 +304,49 @@
 {%- endif -%}
 {% endcall %}
 
-{% call(slot) vf_resources(
-    title={
-      "text": "Community and support",
-    },
-    blocks=[
-      {
-        "type": "resources",
-        "render_images": false,
-        "categories": [
-          {
-            "title": "Connect with the community",
-            "items": [
-              {
-                "title": {
-                  "text": "Matrix chat",
-                  "link_attrs": {
-                    "href": "https://matrix.to/#/#charmhub-data-platform:ubuntu.com"
-                  }
-                },
-                }
-                ]
-              },
-
-        {
-             "title": "Contact us",
-            "items": [
-              {
-                "title": {
-                  "text": "Tell us more about your needs",
-                  "link_attrs": {
-                    "href": "/contact-us",
-                    "class": "js-invoke-modal",
-                    "aria-controls": "data-cassandra-modal"
-                  }
-                },
-                }
-                ]   
-          },
-          {
-             "title": "Read more",
-            "items": [
-              {
-                "title": {
-                  "text": "Charmed Apache Cassandra",
-                  "link_attrs": {
-                    "href": "https://charmhub.io/cassandra"
-                  }
-                },
-              },
-              {
-                "title": {
-                  "text": "Data backups",
-                  "link_attrs": {
-                    "href": "https://ubuntu.com/engage/data-backups"
-                  }
-                },
-              },
-              {
-                "title": {
-                  "text": "How to choose a DBMS",
-                  "link_attrs": {
-                    "href": "https://ubuntu.com/engage/choose-a-database"
-                  }
-                },
-              },
-              {
-                "title": {
-                  "text": "Database cloud migration",
-                  "link_attrs": {
-                    "href": "https://ubuntu.com/engage/database-cloud-migration"
-                  }
-                },
-              }
-            ]   
-          },
-          {
-             "title": "Contribute",
-            "items": [
-              {
-                "title": {
-                  "text": "Apache Cassandra Snap",
-                  "link_attrs": {
-                    "href": "https://github.com/canonical/charmed-cassandra-snap"
-                  }
-                },
-                }
-                ]   
-          },
-        ]
-      }
-    ]
-    ) -%}
-{% endcall -%}
+<section class="p-section">
+  <div class="row--50-50">
+    <hr class="p-rule" />
+    <div class="col">
+      <h2>Community and support</h2>
+    </div>
+    <div class="col">
+      <h3 class="p-text--small-caps">Connect with the community</h3>
+      <ul class="p-list--divided">
+        <li class="p-list__item">
+          <a href="https://matrix.to/#/#charmhub-data-platform:ubuntu.com">Matrix chat</a>
+        </li>
+      </ul>
+      <h3 class="p-text--small-caps">Contact us</h3>
+      <ul class="p-list--divided">
+        <li class="p-list__item">
+          <a class="p-button js-invoke-modal" href="/contact-us" aria-controls="data-cassandra-modal">Tell us more about your needs</a>
+        </li>
+      </ul>
+      <h3 class="p-text--small-caps">Read more</h3>
+      <ul class="p-list--divided">
+        <li class="p-list__item">
+          <a href="https://charmhub.io/cassandra">Charmed Apache Cassandra</a>
+        </li>
+        <li class="p-list__item">
+          <a href="https://ubuntu.com/engage/data-backups">Data backups</a>
+        </li>
+        <li class="p-list__item">
+          <a href="https://ubuntu.com/engage/choose-a-database">How to choose a DBMS</a>
+        </li>
+        <li class="p-list__item">
+          <a href="https://ubuntu.com/engage/database-cloud-migration">Database cloud migration</a>
+        </li>
+      </ul>
+      <h3 class="p-text--small-caps">Contribute</h3>
+      <ul class="p-list--divided">
+        <li class="p-list__item">
+          <a href="https://github.com/canonical/charmed-cassandra-snap">Apache Cassandra Snap</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
 
   <section class="p-section--deep">
     <div class="row">
