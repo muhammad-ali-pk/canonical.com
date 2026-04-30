@@ -97,7 +97,7 @@ DYNAMIC_SITEMAPS = [
     "microk8s/docs",
     "dqlite/docs",
     "mir/docs",
-    "maas/docs"
+    "maas/docs",
 ]
 
 
@@ -1446,7 +1446,7 @@ def handle_maas_goget():
 def bad_gateway(e):
     prefix = "502 Bad Gateway: "
     if str(e).find(prefix) != -1:
-        message = str(e)[len(prefix):]
+        message = str(e)[len(prefix) :]
     return flask.render_template("502.html", message=message), 502
 
 
@@ -1747,7 +1747,7 @@ def get_sitemaps_tree():
             templates_path, exclude_paths=DYNAMIC_SITEMAPS
         )
     except Exception as e:
-        return {"Error": str(e)}, 500
+        return {"Error:": str(e)}, 500
     return tree
 
 
