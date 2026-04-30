@@ -4,7 +4,7 @@
 {% from "_macros/vf_logo-section.jinja" import vf_logo_section %}
 {% from "_macros/vf_tiered-list.jinja" import vf_tiered_list %}
 {% from "_macros/vf_equal-heights.jinja" import vf_equal_heights %}
-{% from "_macros/vf_pricing-block.jinja" import vf_pricing_block %}
+{% from "_macros/vf_basic-section.jinja" import vf_basic_section %}
 
 {% block meta_copydoc %}
   https://docs.google.com/document/d/16_W5PIiK4mg2b5IYyAzmQvwMf7GA6yLiVOkzZ21nPP4/edit
@@ -61,7 +61,7 @@
       "item": {
         "is_highlighted": false,
         "attrs": {
-          "src": "https://assets.ubuntu.com/v1/9f0bed90-cassandra_logo.svg",
+          "src": "https://assets.ubuntu.com/v1/96430c75-cassandra_logo.png",
           "alt": "Apache Cassandra logo"
         }
       }
@@ -153,7 +153,7 @@
     <div class="p-equal-height-row__col u-no-margin--bottom p-data-spotlight__block">
       <div class="p-equal-height-row__item">
         <hr class="p-rule--highlight" />
-        <p class="p-heading--1 u-no-margin u-no-padding">~ 30 minutes</p>
+        <p class="p-heading--1 u-no-margin u-no-padding">~ 30<br/>minutes</p>
       </div>
       <p class="p-equal-height-row__item p-heading--3 u-no-margin u-no-padding">To get started</p>
       <div class="p-equal-height-row__item">
@@ -225,128 +225,145 @@
 ) %}
 {% endcall %}
 
-{% call(slot) vf_pricing_block(
-    title_text='Apache Cassandra<br>support services',
-    attrs={"id": "2-blocks"},
-    tiers=[
-    {
-    'tier_name_text': 'Subscription-based',
-    'tier_price_text': '',
-    'tier_price_explanation': '',
-    'tier_description_html': '',
-    'tier_label_text': '',
-    'tier_offerings': [
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'Security maintenance'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': '24/7 phone and ticket support'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'SLA-backed firefighting support'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'Managed deployments'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'And much more'
-    },
-        ],
-    'cta_html': ''
-    },
-    {
-    'tier_name_text': 'On-demand',
-    'tier_price_text': '',
-    'tier_price_explanation': '',
-    'tier_description_html': '',
-    'tier_label_text': '',
-    'tier_offerings': [
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'Workshops'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'Deployment packages'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'Consulting packages'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'Trainings'
-    },
-    {
-    'list_item_style': 'ticked',
-    'list_item_content_html': 'And much more'
-    },
-        ],
-    'cta_html': ''
-    }
+{{ vf_basic_section(
+    title={"text": "Apache Cassandra<br/> support services"},
+    padding="shallow",
+    items=[
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": '<p>Whether you are exploring Apache Cassandra or need deep expertise to scale your deployments and meet your SLAs, our subscription-based services &ndash; including <a href="https://ubuntu.com/pro">Ubuntu Pro</a> &ndash; are designed to support your team and free them from time-consuming and error-prone tasks.</p>'
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "text",
+          "content": "Our on-demand services help you address specific challenges by designing the right solutions, providing targeted knowledge transfer, or delivering timely expert consulting tailored to your needs."
+        }
+      },
+      {
+        "type": "cta-block",
+        "item": {
+          "link": {
+            "content_html": "Get in touch",
+            "attrs": {
+              "href": "/contact-us",
+              "class": "p-button js-invoke-modal",
+              "aria-controls": "data-cassandra-modal"
+            }
+          },
+        }
+      }
     ]
-    ) -%}
-{%- if slot == 'section_description' -%}
-<p>
-    Whether you are exploring Apache Cassandra or need deep expertise to scale your deployments and meet your SLAs, our subscription-based services – including <a href="https://ubuntu.com/pro">Ubuntu Pro</a> – are designed to support your team and free them from time-consuming and error-prone tasks.
-</p>
-<p>
-    Our on-demand services help you address specific challenges by designing the right solutions, providing targeted knowledge transfer, or delivering timely expert consulting tailored to your needs.
-</p>
-<div class="p-cta-block">
-  <a class="js-invoke-modal p-button" href="/contact-us" aria-controls="data-cassandra-modal">Get in touch</a>
-</div>
-{%- endif -%}
-{% endcall %}
+  ) }}
 
-<section class="p-section">
-  <div class="row--50-50">
-    <hr class="p-rule" />
-    <div class="col">
-      <h2>Community and support</h2>
+  <section class="p-section">
+    <div class="row">
+      <div class="col-6">
+        <div class="p-section--shallow">
+          <p class="p-heading--4">Subscription-based</p>
+          <p class="u-text--muted u-no-margin--bottom">What's included</p>
+        </div>
+        <hr class="p-rule--muted u-no-margin--bottom" />
+        <ul class="p-list--divided">
+          <li class="p-list__item is-ticked">Security maintenance</li>
+          <li class="p-list__item is-ticked">24/7 phone and ticket support</li>
+          <li class="p-list__item is-ticked">SLA-backed firefighting support</li>
+          <li class="p-list__item is-ticked">Managed deployments</li>
+          <li class="p-list__item is-ticked">And much more</li>
+        </ul>
+      </div>
+      <div class="col-6">
+        <div class="p-section--shallow">
+          <p class="p-heading--4">On-demand</p>
+          <p class="u-text--muted u-no-margin--bottom">What's included</p>
+        </div>
+        <hr class="p-rule--muted u-no-margin--bottom" />
+        <ul class="p-list--divided">
+          <li class="p-list__item is-ticked">Workshops</li>
+          <li class="p-list__item is-ticked">Deployment packages</li>
+          <li class="p-list__item is-ticked">Consulting packages</li>
+          <li class="p-list__item is-ticked">Trainings</li>
+          <li class="p-list__item is-ticked">And much more</li>
+        </ul>
+      </div>
     </div>
-    <div class="col">
-      <h3 class="p-text--small-caps">Connect with the community</h3>
-      <ul class="p-list--divided">
-        <li class="p-list__item">
-          <a href="https://matrix.to/#/#charmhub-data-platform:ubuntu.com">Matrix chat</a>
-        </li>
-      </ul>
-      <h3 class="p-text--small-caps">Contact us</h3>
-      <ul class="p-list--divided">
-        <li class="p-list__item">
-          <a class="p-button js-invoke-modal" href="/contact-us" aria-controls="data-cassandra-modal">Tell us more about your needs</a>
-        </li>
-      </ul>
-      <h3 class="p-text--small-caps">Read more</h3>
-      <ul class="p-list--divided">
-        <li class="p-list__item">
-          <a href="https://charmhub.io/cassandra">Charmed Apache Cassandra</a>
-        </li>
-        <li class="p-list__item">
-          <a href="https://ubuntu.com/engage/data-backups">Data backups</a>
-        </li>
-        <li class="p-list__item">
-          <a href="https://ubuntu.com/engage/choose-a-database">How to choose a DBMS</a>
-        </li>
-        <li class="p-list__item">
-          <a href="https://ubuntu.com/engage/database-cloud-migration">Database cloud migration</a>
-        </li>
-      </ul>
-      <h3 class="p-text--small-caps">Contribute</h3>
-      <ul class="p-list--divided">
-        <li class="p-list__item">
-          <a href="https://github.com/canonical/charmed-cassandra-snap">Apache Cassandra Snap</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
+  </section>
+
+  {{ vf_basic_section(
+    title={"text": "Community and support"},
+    padding="deep",
+    items=[
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": '
+            <h3 class="p-text--small-caps">Connect with the community</h3>
+            <ul class="p-list">
+              <li class="p-list__item">
+                <a href="https://matrix.to/#/#charmhub-data-platform:ubuntu.com">Matrix chat&nbsp;&rsaquo;</a>
+              </li>
+            </ul>
+          '
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": '
+            <hr class="p-rule--muted" />
+            <h3 class="p-text--small-caps">Contact us</h3>
+            <a class="p-button js-invoke-modal"
+               aria-controls="data-cassandra-modal"
+               href="/contact-us">Tell us more about your needs</a>
+          '
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": '
+            <hr class="p-rule--muted" />
+            <h3 class="p-text--small-caps">Read more</h3>
+            <ul class="p-list">
+              <li class="p-list__item">
+                <a href="https://charmhub.io/cassandra">Charmed Apache Cassandra&nbsp;&rsaquo;</a>
+              </li>
+              <li class="p-list__item">
+                <a href="https://ubuntu.com/engage/data-backups">Data backups&nbsp;&rsaquo;</a>
+              </li>
+              <li class="p-list__item">
+                <a href="https://ubuntu.com/engage/choose-a-database">How to choose a DBMS&nbsp;&rsaquo;</a>
+              </li>
+              <li class="p-list__item">
+                <a href="https://ubuntu.com/engage/database-cloud-migration">Database cloud migration&nbsp;&rsaquo;</a>
+              </li>
+            </ul>
+          '
+        }
+      },
+      {
+        "type": "description",
+        "item": {
+          "type": "html",
+          "content": '
+            <hr class="p-rule--muted" />
+            <h3 class="p-text--small-caps">Contribute</h3>
+            <ul class="p-list">
+              <li class="p-list__item">
+                <a href="https://github.com/canonical/charmed-cassandra-snap">Apache Cassandra Snap&nbsp;&rsaquo;</a>
+              </li>
+            </ul>
+          '
+        }
+      }
+    ]
+  ) }}
 
   <section class="p-section--deep">
     <div class="row">
