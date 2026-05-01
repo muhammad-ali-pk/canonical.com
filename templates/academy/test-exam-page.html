@@ -1,0 +1,22 @@
+{% extends 'base_index.html' %}
+
+{% block body_class %}
+  is-paper
+{% endblock body_class %}
+
+{% from "_macros/vf_hero.jinja" import vf_hero %}
+
+{% block content %}
+
+  {% call(slot) vf_hero(
+    blocks=[],
+    display_blank_signpost_image_space=false,
+    is_split_on_medium=false,
+    layout="50/50",
+    subtitle_text="H2 placeholder - aim for one line, 2 is acceptable, more - use a paragraph",
+    title_text="H1 - ideally one line, up to two"
+    ) -%}
+
+  {% endcall -%}
+
+{% endblock %}
