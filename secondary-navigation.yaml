@@ -401,6 +401,7 @@ automotive:
 maas:
   title: MAAS
   path: /maas
+  icon: https://assets.ubuntu.com/v1/0a863174-MAAS+logomark+only.svg
 
   children:
     - title: Overview
